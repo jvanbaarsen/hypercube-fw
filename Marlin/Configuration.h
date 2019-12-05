@@ -474,9 +474,9 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // Ultimaker
-  #define DEFAULT_Kp 22.2
-  #define DEFAULT_Ki 1.08
-  #define DEFAULT_Kd 114
+  //#define DEFAULT_Kp 22.2
+  //#define DEFAULT_Ki 1.08
+  //#define DEFAULT_Kd 114
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -488,6 +488,10 @@
   //#define DEFAULT_Ki 2.25
   //#define DEFAULT_Kd 440
 
+  //Kp: 14.60 Ki: 1.32 Kd: 40.34
+  #define DEFAULT_Kp 14.78
+  #define DEFAULT_Ki 1.32
+  #define DEFAULT_Kd 41.42
 #endif // PIDTEMP
 
 //===========================================================================
@@ -517,7 +521,7 @@
  * When set to any value below 255, enables a form of PWM to the bed that acts like a divider
  * so don't use it unless you are OK with PWM on your bed. (See the comment on enabling PIDTEMPBED)
  */
-//#define MAX_BED_POWER 255 // limits duty cycle to bed; 255=full current
+#define MAX_BED_POWER 255 // limits duty cycle to bed; 255=full current
 
 #if ENABLED(PIDTEMPBED)
   //#define MIN_BED_POWER 0
@@ -525,9 +529,9 @@
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 10.00
-  #define DEFAULT_bedKi .023
-  #define DEFAULT_bedKd 305.4
+  //#define DEFAULT_bedKp 10.00
+  //#define DEFAULT_bedKi .023
+  //#define DEFAULT_bedKd 305.4
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune
@@ -536,6 +540,10 @@
   //#define DEFAULT_bedKd 1675.16
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
+  #define DEFAULT_bedKp 135.81
+  #define DEFAULT_bedKi 24.58
+  #define DEFAULT_bedKd 500.29
+  //Kp: 135.81 Ki: 24.58 Kd: 500.29
 #endif // PIDTEMPBED
 
 // @section extruder
@@ -716,7 +724,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 105.79 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 98.24244471 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -763,9 +771,9 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-//#define CLASSIC_JERK
+#define CLASSIC_JERK
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 10.0
+  #define DEFAULT_XJERK 10.0 
   #define DEFAULT_YJERK 10.0
   #define DEFAULT_ZJERK  0.3
 
@@ -785,7 +793,7 @@
  *   http://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-  #define JUNCTION_DEVIATION_MM 0.02  // (mm) Distance from real junction edge
+  #define JUNCTION_DEVIATION_MM 0.075  // (mm) Distance from real junction edge
 #endif
 
 /**
